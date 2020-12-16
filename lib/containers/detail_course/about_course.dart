@@ -6,26 +6,30 @@ class AboutCourse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.all(10),
       child: Column(
         children: [
           SizedBox(
-            height: 10,
+            height: width * 0.04,
           ),
           Text(
             'Tentang Course',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: width * 0.06,
               fontWeight: FontWeight.w700,
             ),
           ),
           SizedBox(
-            height: 10,
+            height: width * 0.04,
           ),
           Text(
             description,
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: width * 0.04,
+            ),
           ),
         ],
       ),

@@ -22,8 +22,9 @@ class Description extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(20),
       alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -34,7 +35,7 @@ class Description extends StatelessWidget {
             child: Text(
               'Apa Yang Refactory Dapat Bantu?',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: width * 0.05,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -50,12 +51,12 @@ class Description extends StatelessWidget {
                   SizedBox(height: 30),
                   Image.network(data['icon']),
                   SizedBox(
-                    height: 20,
+                    height: width * 0.09,
                   ),
                   Text(
                     data['title'],
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: width * 0.05,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -64,9 +65,10 @@ class Description extends StatelessWidget {
                   ),
                   Text(
                     data['description'],
-                    textAlign: TextAlign.justify,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.w300,
+                      fontSize: width * 0.04,
                     ),
                   )
                 ],

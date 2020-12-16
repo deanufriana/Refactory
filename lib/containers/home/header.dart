@@ -5,6 +5,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -28,7 +29,7 @@ class Header extends StatelessWidget {
           Text(
             'Empowering People Through Programming',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: width * 0.09,
               color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
@@ -38,40 +39,41 @@ class Header extends StatelessWidget {
             'Refactory adalah perusahaan edukasi dan teknologi yang menyediakan layanan lengkap berupa course maupun custom training yang materinya dapat disesuaikan dengan kebutuhan teknologi dan bisnis perusahaan Anda.',
             style: TextStyle(
               color: Colors.white,
+              fontSize: width * 0.04,
             ),
           ),
           SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                  child: Text(
-                    'Temukan Solusi Anda',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  onPressed: () {},
-                  color: Colors.orange,
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
                 ),
+                child: Text(
+                  'Temukan Solusi Anda',
+                  style: TextStyle(
+                    fontSize: width * 0.03,
+                  ),
+                ),
+                onPressed: () {},
+                color: Colors.orange,
               ),
-              SizedBox(width: 10),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
-                  child: Text(
-                    'Tingkatkan Skill Anda',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  onPressed: () {},
-                  color: Colors.blue,
+              SizedBox(
+                width: width * 0.04,
+              ),
+              RaisedButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
                 ),
+                child: Text(
+                  'Tingkatkan Skill Anda',
+                  style: TextStyle(
+                    fontSize: width * 0.03,
+                  ),
+                ),
+                onPressed: () {},
+                color: Colors.blue,
               ),
             ],
           ),

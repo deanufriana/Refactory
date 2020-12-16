@@ -6,21 +6,22 @@ class CourseMateri extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       child: Column(
         children: [
           SizedBox(
-            height: 10,
+            height: width * 0.04,
           ),
           Text(
             'Materi Course',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: width * 0.06,
               fontWeight: FontWeight.w700,
             ),
           ),
           SizedBox(
-            height: 10,
+            height: width * 0.04,
           ),
           ListView.builder(
             itemCount: materi.length,
@@ -32,12 +33,17 @@ class CourseMateri extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(
+                        width * 0.04,
+                      ),
                       alignment: Alignment.topLeft,
                       color: Colors.grey[300],
                       child: Text(
                         data['section'],
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: width * 0.04,
+                        ),
                       ),
                     ),
                     ListView.builder(
@@ -48,7 +54,7 @@ class CourseMateri extends StatelessWidget {
                         final detailData = data['data'][index];
                         return Container(
                           color: Colors.grey[200],
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.all(width * 0.02),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

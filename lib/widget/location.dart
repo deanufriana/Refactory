@@ -45,6 +45,7 @@ class _LocationWidgetState extends State<LocationWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -58,15 +59,29 @@ class _LocationWidgetState extends State<LocationWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 textDirection: TextDirection.ltr,
                 children: [
-                  Text('Posisi saat ini'),
+                  Text(
+                    'Posisi saat ini',
+                    style: TextStyle(
+                      fontSize: width * 0.04,
+                    ),
+                  ),
                   SizedBox(
-                    height: 10,
+                    height: width * 0.03,
                   ),
                   Text(
                     'Longitude: ${_locationData.longitude.toString()}',
+                    style: TextStyle(
+                      fontSize: width * 0.04,
+                    ),
+                  ),
+                  SizedBox(
+                    height: width * 0.02,
                   ),
                   Text(
                     'Latitude: ${_locationData.latitude.toString()}',
+                    style: TextStyle(
+                      fontSize: width * 0.04,
+                    ),
                   ),
                 ],
               ),

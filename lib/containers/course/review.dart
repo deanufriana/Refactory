@@ -23,21 +23,29 @@ class _ReviewState extends State<Review> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       child: Column(
         children: [
           Text('MEET OUR GRADUATES'),
-          SizedBox(height: 10),
+          SizedBox(
+            height: width * 0.04,
+          ),
           Text(
             'Review',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: width * 0.05,
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(
+            height: width * 0.04,
+          ),
           Text(
             'Read what our alumni said on Course Report',
+            style: TextStyle(
+              fontSize: width * 0.04,
+            ),
           ),
           FutureBuilder(
             future: getReview(),
@@ -58,32 +66,44 @@ class _ReviewState extends State<Review> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.network(data['user']['photo_url']),
-                            SizedBox(height: 10),
+                            SizedBox(height: width * 0.04),
                             Text(
                               data['user']['name'],
+                              style: TextStyle(
+                                fontSize: width * 0.04,
+                              ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(
+                              height: width * 0.04,
+                            ),
                             Text(
                               data['user']['from'],
                               style: TextStyle(
                                 fontWeight: FontWeight.w300,
+                                fontSize: width * 0.04,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: width * 0.04),
                             StarRating(
                               value: data['star'],
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: width * 0.04),
                             Text(
                               data['title'],
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
+                                fontSize: width * 0.04,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(
+                              height: width * 0.04,
+                            ),
                             Text(
                               data['description'],
                               textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: width * 0.037,
+                              ),
                             ),
                           ],
                         ),
@@ -92,7 +112,6 @@ class _ReviewState extends State<Review> {
                   },
                 );
               }
-
               return CircularProgressIndicator();
             },
           ),

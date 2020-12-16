@@ -51,6 +51,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       key: _scaffoldkeys,
       appBar: AppBar(
@@ -58,6 +59,7 @@ class _LoginState extends State<Login> {
       ),
       body: SingleChildScrollView(
         child: Container(
+          height: height - 100,
           margin: EdgeInsets.all(20),
           child: Form(
             key: _formKey,

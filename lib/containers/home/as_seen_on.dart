@@ -28,6 +28,7 @@ class _AsSeenOnState extends State<AsSeenOn> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       margin: EdgeInsets.all(10),
       child: Column(
@@ -38,7 +39,7 @@ class _AsSeenOnState extends State<AsSeenOn> {
           Text(
             'As Seen On',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: width * 0.07,
               fontWeight: FontWeight.bold,
             ),
           ),

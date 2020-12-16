@@ -5,9 +5,13 @@ class EasyStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       child: Column(
         children: [
+          SizedBox(
+            height: width * 0.04,
+          ),
           Text(
             'Langkah Mudah',
             style: TextStyle(
@@ -15,15 +19,19 @@ class EasyStep extends StatelessWidget {
               color: Colors.orange,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(
+            height: width * 0.05,
+          ),
           Text(
             'Memulai Belajar di Refactory Course',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: width * 0.045,
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(
+            height: width * 0.06,
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.network(

@@ -15,6 +15,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -39,27 +40,28 @@ class Header extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 22,
+              fontSize: width * 0.07,
               color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: width * 0.04),
           Text(
             subtitle,
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
+              fontSize: width * 0.04,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: width * 0.04),
           RaisedButton(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18.0),
             ),
             child: Text(
               'Mulai Belajar',
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(fontSize: width * 0.04),
             ),
             onPressed: () {},
             color: Colors.orange,

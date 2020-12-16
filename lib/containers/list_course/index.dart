@@ -9,6 +9,7 @@ class ListCourse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     Future<void> getListCourse() async {
       final dio = new Dio();
       final response = await dio.get('${global.url}/list-course.json');
@@ -27,6 +28,9 @@ class ListCourse extends StatelessWidget {
         child: FutureBuilder(
           future: getListCourse(),
           builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return LinearProgressIndicator();
+            }
             if (snapshot.hasData) {
               final listCourse = snapshot.data['data'];
               return ListView.builder(
@@ -52,27 +56,47 @@ class ListCourse extends StatelessWidget {
                       },
                       child: Card(
                         child: Container(
-                          padding: EdgeInsets.all(5),
+                          padding: EdgeInsets.all(width * 0.02),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Image.network(
                                 data['photo_url'],
                               ),
-                              SizedBox(height: 10),
+                              SizedBox(height: width * 0.02),
                               Text(
                                 data['title'],
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
+                                  fontSize: width * 0.05,
                                 ),
                               ),
-                              SizedBox(height: 10),
-                              Text(data['short_description']),
-                              ListTile(
-                                leading:
-                                    Image.network(data['user']['photo_url']),
-                                title: new Text(
-                                  data['user']['name'],
+                              SizedBox(height: width * 0.02),
+                              Text(
+                                data['short_description'],
+                                style: TextStyle(
+                                  fontSize: width * 0.04,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10.0,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.network(
+                                      data['user']['photo_url'],
+                                    ),
+                                    SizedBox(
+                                      width: width * 0.02,
+                                    ),
+                                    Text(
+                                      data['user']['name'],
+                                      style: TextStyle(
+                                        fontSize: width * 0.04,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -85,7 +109,7 @@ class ListCourse extends StatelessWidget {
                 },
               );
             }
-            return CircularProgressIndicator();
+            return Text('Data tidak ditemukan');
           },
         ),
       ),

@@ -28,6 +28,7 @@ class _PartnerState extends State<Partner> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -38,13 +39,13 @@ class _PartnerState extends State<Partner> {
           Text(
             'Partner Eksklusif Kami',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: width * 0.05,
               fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(height: 10),
           Container(
-            height: 120,
+            height: 100,
             child: FutureBuilder(
               future: getPartner(),
               builder: (context, snapshot) {
@@ -57,7 +58,7 @@ class _PartnerState extends State<Partner> {
                       final data = snapshot.data['data'][index];
                       return Image.network(
                         data['photo_url'],
-                        width: 150,
+                        width: 130,
                         color: Colors.blue,
                         height: 100,
                       );

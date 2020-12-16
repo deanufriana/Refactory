@@ -5,6 +5,7 @@ class HelpSkill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.all(10),
       child: Column(
@@ -13,12 +14,12 @@ class HelpSkill extends StatelessWidget {
             'Bagaimana Refactory Course membantu meningkatkan skill anda.',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w500,
+              fontSize: width * 0.06,
+              fontWeight: FontWeight.w400,
             ),
           ),
           SizedBox(
-            height: 10,
+            height: width * 0.04,
           ),
           RaisedButton(
             shape: RoundedRectangleBorder(
@@ -26,18 +27,20 @@ class HelpSkill extends StatelessWidget {
             ),
             child: Text(
               'Pelajari Lebih',
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(
+                fontSize: width * 0.04,
+              ),
             ),
             onPressed: () {
               Navigator.of(context).pushNamed('/listcourse');
             },
             color: Colors.orange,
           ),
-          SizedBox(height: 10),
+          SizedBox(height: width * 0.04),
           Image.network(
             'https://i0.wp.com/refactory.id/wp-content/uploads/2020/07/Frame.png?fit=839%2C481&ssl=1',
           ),
-          SizedBox(height: 10),
+          SizedBox(height: width * 0.04),
         ],
       ),
     );

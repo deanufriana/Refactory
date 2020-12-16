@@ -5,6 +5,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -28,19 +29,24 @@ class Header extends StatelessWidget {
           Text(
             'Tingkatkan skill pemrograman kapan pun, dimana pun',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: width * 0.09,
               color: Colors.white,
               fontWeight: FontWeight.w700,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(
+            height: width * 0.04,
+          ),
           Text(
             'We’re a brand of passionate software engineers and educators with an engaging curriculum backed by real-world software projects ready to boost your career.',
             style: TextStyle(
               color: Colors.white,
+              fontSize: width * 0.04,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(
+            height: width * 0.04,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -50,7 +56,9 @@ class Header extends StatelessWidget {
                 ),
                 child: Text(
                   'Masuk & Mulai Belajar',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                    fontSize: width * 0.03,
+                  ),
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamed('/listcourse');
@@ -61,7 +69,9 @@ class Header extends StatelessWidget {
               RaisedButton(
                 child: Text(
                   'Daftar Sekarang',
-                  style: TextStyle(fontSize: 12),
+                  style: TextStyle(
+                    fontSize: width * 0.03,
+                  ),
                 ),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
